@@ -1,28 +1,26 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 let isConnected = false;
 
 export const connectToDB = async () => {
-    // mongoose.set("strictQuery", true);
+    // mongoose.SchemaTypes('strictQuery', true);  <-------------- mongoose.SchemaTypes is not a function in Mongoose
 
     if (isConnected) {
-        console.log("MongoDb is already connected");
-        return;
+        console.log('MongoDB is already connected');
+        return; // to stop if it's running
     }
 
     try {
         await mongoose.connect(process.env.MONGODB_URI, {
-            dbName: "share_prompt",
-            serverSelectionTimeoutMS: 30000, // Increase timeout
-            socketTimeoutMS: 45000,
-            // useNewUrlParser: true,
-            // useUnifiedTopology: true,
+            dbName: "share-prompt",
+            // useNewUrlParser: true,         <-------------- deprecated  
+            // useUnifiedTopology: true,       <-------------- deprecated
         });
 
         isConnected = true;
-        console.log("MongoDB connected");
+
+        console.log('MongoDB connected');
     } catch (error) {
-        console.log("Error: " + error);
         console.log(error);
     }
-};
+}
