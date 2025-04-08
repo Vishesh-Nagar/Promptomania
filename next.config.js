@@ -1,5 +1,5 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
+  
   experimental: {
     appDir: true,
     serverComponentsExternalPackages: ["mongoose"],
@@ -8,8 +8,8 @@ const nextConfig = {
     domains: ['lh3.googleusercontent.com'],
   },
   webpack(config) {
-    config.experiments = {
-      ...config.experiments,
+config.experiments = {
+...config.experiments,
       topLevelAwait: true,
     }
     return config
