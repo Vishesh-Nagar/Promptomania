@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 let isConnected = false;
 
 export const connectToDB = async () => {
-    mongoose.set("strictQuery", true);
+    // mongoose.set("strictQuery", true);
 
     if (isConnected) {
         console.log("MongoDb is already connected");
@@ -15,8 +15,8 @@ export const connectToDB = async () => {
             dbName: "share_prompt",
             serverSelectionTimeoutMS: 30000, // Increase timeout
             socketTimeoutMS: 45000,
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
+            // useNewUrlParser: true,
+            // useUnifiedTopology: true,
         });
 
         isConnected = true;
